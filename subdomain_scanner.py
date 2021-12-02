@@ -1,4 +1,4 @@
-#ayyyy
+#!/usr/bin/env python3
 import requests
 from requests.api import request
 

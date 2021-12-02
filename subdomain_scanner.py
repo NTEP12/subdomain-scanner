@@ -18,6 +18,7 @@ def print_banner():
 print_banner()
 
 def subf(domain_name,subd):
+    discovered_subdomains = []
     print('Started scanning.')
 
     for subdomain in subd:
@@ -25,8 +26,12 @@ def subf(domain_name,subd):
         try:
             requests.get(url)
             print(f'[+] {url} found.')
+            discovered_subdomains.append(url)
         except requests.ConnectionError:
             pass
+    with open('discovered_subdomains.txt', 'w') as f:
+        for subdomain in discovered_subdomains:
+            print(subdomain, file=f)
     print('\n')
     print('Thanks for using my program.')
     
